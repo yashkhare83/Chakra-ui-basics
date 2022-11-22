@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ChakraProvider,extendTheme,Heading } from '@chakra-ui/react';
+import { ChakraProvider,extendTheme,Heading,button,ButtonGroup, defineStyle, defineStyleConfig  } from '@chakra-ui/react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 // 2. Call `extendTheme` and pass your custom values
@@ -21,17 +21,31 @@ const theme = extendTheme({
       100: "#ae92ef",
       200: "#c9ac56",
     },
-    supporting:{
-      
-    }
+
 
   },
   fonts: {
     body: "system-ui, sans-serif",
     heading: "Inter, serif",
     mono: "Menlo, monospace",
+    button:"Inter, serif",
   },
   fontSizes: {
+    xs: "0.75rem",
+    sm: "0.875rem",
+    md: "1rem",
+    lg: "1.125rem",
+    xl: "1.25rem",
+    "2xl": "1.5rem",
+    "3xl": "1.875rem",
+    "4xl": "2.25rem",
+    "5xl": "3rem",
+    "6xl": "3.75rem",
+    "7xl": "4.5rem",
+    "8xl": "6rem",
+    "9xl": "8rem",
+  },
+  size:{
     xs: "0.75rem",
     sm: "0.875rem",
     md: "1rem",
@@ -83,6 +97,38 @@ const theme = extendTheme({
     widest: "0.1em",
   },
 })
+
+// add custom button styles
+const buttonPrimary = defineStyle({
+  background: 'primary.100',
+  colorScheme: 'white',
+  fontFamily: 'Inter,sarif',
+  fontWeight: 'bold',
+
+  // let's also provide dark mode alternatives
+  _hover: {
+    background: 'white',
+    colorScheme: 'primary.100',
+  }
+})
+
+const buttonSecondary = defineStyle({
+  background: 'secondary.100',
+  colorScheme: 'white',
+  fontFamily: 'Inter,sarif',
+  fontWeight: 'bold',
+
+  // let's also provide dark mode alternatives
+  _hover: {
+    background: 'white',
+    color: 'secondary.100',
+  }
+})
+
+export const buttonTheme = defineStyleConfig({
+  variants: { buttonPrimary,buttonSecondary },
+})
+
 root.render(
   
   <ChakraProvider theme={theme}>
