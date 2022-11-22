@@ -1,4 +1,5 @@
 import './App.css';
+import Button from './component/Button';
 import FlexBox from './component/flexBox';
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <>
     {/* include flexbox  */}
     <FlexBox/>
+    <Button/>
     </>
   );
 }
